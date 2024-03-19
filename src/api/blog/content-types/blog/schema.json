@@ -1,0 +1,71 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blogs",
+  "info": {
+    "singularName": "blog",
+    "pluralName": "blogs",
+    "displayName": "Блог",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "maxLength": 255,
+      "required": true,
+      "unique": false
+    },
+    "Date": {
+      "type": "date",
+      "required": true
+    },
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "Дизайн",
+        "Разработка",
+        "Жизнь"
+      ],
+      "required": true
+    },
+    "ImageAvatar": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Summary": {
+      "type": "text",
+      "required": true,
+      "maxLength": 255
+    },
+    "Visibility": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "ImageBig": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Content": {
+      "type": "richtext",
+      "required": true
+    },
+    "Link": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255,
+      "unique": true
+    }
+  }
+}
