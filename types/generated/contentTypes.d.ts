@@ -367,8 +367,7 @@ export interface ApiBlogBlog extends Schema.CollectionType {
   info: {
     singularName: 'blog';
     pluralName: 'blogs';
-    displayName: '\u0411\u043B\u043E\u0433';
-    description: '';
+    displayName: 'Blog';
   };
   options: {
     draftAndPublish: true;
@@ -388,20 +387,19 @@ export interface ApiBlogBlog extends Schema.CollectionType {
       ]
     > &
       Attribute.Required;
+    Visibility: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
     ImageAvatar: Attribute.Media & Attribute.Required;
+    ImageBig: Attribute.Media & Attribute.Required;
     Summary: Attribute.Text &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
-    Visibility: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
-    ImageBig: Attribute.Media & Attribute.Required;
     Content: Attribute.RichText & Attribute.Required;
     Link: Attribute.String &
       Attribute.Required &
-      Attribute.Unique &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
