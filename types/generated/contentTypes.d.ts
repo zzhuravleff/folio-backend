@@ -362,57 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiBlogBlog extends Schema.CollectionType {
-  collectionName: 'blogs';
-  info: {
-    singularName: 'blog';
-    pluralName: 'blogs';
-    displayName: 'Blog';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Title: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        maxLength: 255;
-      }>;
-    Date: Attribute.Date & Attribute.Required;
-    Category: Attribute.Enumeration<
-      [
-        '\u0414\u0438\u0437\u0430\u0439\u043D',
-        '\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u043A\u0430',
-        '\u0416\u0438\u0437\u043D\u044C'
-      ]
-    > &
-      Attribute.Required;
-    Visibility: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
-    ImageAvatar: Attribute.Media & Attribute.Required;
-    ImageBig: Attribute.Media & Attribute.Required;
-    Summary: Attribute.Text &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        maxLength: 255;
-      }>;
-    Content: Attribute.RichText & Attribute.Required;
-    Link: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        maxLength: 255;
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -839,6 +788,113 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiBlogBlog extends Schema.CollectionType {
+  collectionName: 'blogs';
+  info: {
+    singularName: 'blog';
+    pluralName: 'blogs';
+    displayName: 'Blog';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    Date: Attribute.Date & Attribute.Required;
+    Category: Attribute.Enumeration<
+      [
+        '\u0414\u0438\u0437\u0430\u0439\u043D',
+        '\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u043A\u0430',
+        '\u0416\u0438\u0437\u043D\u044C'
+      ]
+    > &
+      Attribute.Required;
+    Visibility: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    ImageAvatar: Attribute.Media & Attribute.Required;
+    ImageBig: Attribute.Media & Attribute.Required;
+    Summary: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    Content: Attribute.RichText & Attribute.Required;
+    Link: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiWorkWork extends Schema.CollectionType {
+  collectionName: 'works';
+  info: {
+    singularName: 'work';
+    pluralName: 'works';
+    displayName: 'Work';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    Date: Attribute.Date & Attribute.Required;
+    Category: Attribute.Enumeration<
+      [
+        '\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u043A\u0430',
+        '\u0414\u0438\u0437\u0430\u0439\u043D'
+      ]
+    > &
+      Attribute.Required;
+    Visibility: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    HomePageOne: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    HomePageTwo: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    ImageAvatar: Attribute.Media & Attribute.Required;
+    ImageBig: Attribute.Media & Attribute.Required;
+    Summary: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    Content: Attribute.RichText & Attribute.Required;
+    Link: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::work.work', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::work.work', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -849,7 +905,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::blog.blog': ApiBlogBlog;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -858,6 +913,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::blog.blog': ApiBlogBlog;
+      'api::work.work': ApiWorkWork;
     }
   }
 }

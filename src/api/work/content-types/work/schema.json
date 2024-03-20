@@ -1,0 +1,77 @@
+{
+  "kind": "collectionType",
+  "collectionName": "works",
+  "info": {
+    "singularName": "work",
+    "pluralName": "works",
+    "displayName": "Work"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "Date": {
+      "type": "date",
+      "required": true
+    },
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "Разработка",
+        "Дизайн"
+      ],
+      "required": true
+    },
+    "Visibility": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "HomePageOne": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "HomePageTwo": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "ImageAvatar": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "ImageBig": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "Summary": {
+      "type": "text",
+      "required": true,
+      "maxLength": 255
+    },
+    "Content": {
+      "type": "richtext",
+      "required": true
+    },
+    "Link": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    }
+  }
+}
