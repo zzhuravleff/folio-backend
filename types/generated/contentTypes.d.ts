@@ -824,12 +824,12 @@ export interface ApiBlogBlog extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
-    Content: Attribute.RichText & Attribute.Required;
     Link: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
+    Content: Attribute.Blocks & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
