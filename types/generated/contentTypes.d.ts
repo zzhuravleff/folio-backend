@@ -810,7 +810,8 @@ export interface ApiBlogBlog extends Schema.CollectionType {
       [
         '\u0414\u0438\u0437\u0430\u0439\u043D',
         '\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u043A\u0430',
-        '\u0416\u0438\u0437\u043D\u044C'
+        '\u0416\u0438\u0437\u043D\u044C',
+        '\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u043A\u0430 | \u0414\u0438\u0437\u0430\u0439\u043D'
       ]
     > &
       Attribute.Required;
@@ -861,7 +862,8 @@ export interface ApiWorkWork extends Schema.CollectionType {
     Category: Attribute.Enumeration<
       [
         '\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u043A\u0430',
-        '\u0414\u0438\u0437\u0430\u0439\u043D'
+        '\u0414\u0438\u0437\u0430\u0439\u043D',
+        '\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u043A\u0430 | \u0414\u0438\u0437\u0430\u0439\u043D'
       ]
     > &
       Attribute.Required;
